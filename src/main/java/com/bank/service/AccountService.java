@@ -28,5 +28,10 @@ public class AccountService {
         repository.save(account);
     }
 
+    public String getStatement(String accountId){
+        Account account = repository.findById(accountId);
+        return formatter.format(account.getTransactions());
+    }
+
 
 }
